@@ -18,18 +18,18 @@ async function main() {
         const file = fs.createWriteStream(designSystemArchive);
         const request = https.get(designSystemArchiveUrl, function (response) {
             response.pipe(file);
-            file.on('finish', function () {
+            file.on('finish', async function () {
                 console.log('Finished downloading archive');
                 file.close();
+
+                // Extract the archive
+                await extract(designSystemArchive, {dir: __dirname + '/ontario-design-system'})
             });
         });
         request.on('error', function (err) {
             console.log(err);
         });
     }
-
-    // Extract the archive
-    await extract(designSystemArchive, {dir: __dirname + '/ontario-design-system'})
 }
 
 main().then(r => console.log('Done downloading and extracting the Ontario Design System'));

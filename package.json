@@ -1,11 +1,15 @@
 {
   "name": "ontario-design-system",
   "version": "0.0.0",
-  "description": "",
+  "description": "Wrapper package for the Ontario Design System",
+  "homepage": "https://designsystem.ontario.ca/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "node install.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Eric Lemieux <eric@lemieuxdev.com>",
+  "license": "ISC",
+  "dependencies": {
+    "extract-zip": "^2.0.1"
+  }
 }
